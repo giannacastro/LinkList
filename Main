@@ -1,64 +1,16 @@
-//link list
-class LinkedList {
+// node in the linked list
+class Node {
 
-    Node head;
+  // where data value is stored
+  int item;
+  // for the next node
+  Node next;
 
-    //removes the node after the given node
-    void removeAfter(Node node) {
-        if (node != null && node.next != null) {
-            node.next = node.next.next;
-        }
-    }
-
-    //creates a copy of the linked list
-    Node copy() {
-        if (head == null) {
-            return null;
-        }
-        Node curr = head;
-        Node copyHead = new Node(curr.item);
-        Node copyCurr = copyHead;
-        curr = curr.next;
-        while (curr != null) {
-            copyCurr.next = new Node(curr.item);
-            copyCurr = copyCurr.next;
-            curr = curr.next;
-        }
-        return copyHead;
-    }
-
-    //removes nodes with specified key
-    void removeDuplicate(Node head, int key) {
-        Node curr = head;
-        Node prev = null;
-        while (curr != null) {
-            if (curr.item == key) {
-                if (prev == null) {
-                    head = curr.next;
-                } else {
-                    prev.next = curr.next;
-                }
-            } else {
-                prev = curr;
-            }
-            curr = curr.next;
-        }
-    }
-
-    //finds the max item
-    int max(Node head) {
-        if (head == null) {
-            return 0;
-        }
-        int max = head.item;
-        Node curr = head.next;
-        while (curr != null) {
-            if (curr.item > max) {
-                max = curr.item;
-            }
-            curr = curr.next;
-        }
-        return max;
-    }
-
+  // constructor for a new node
+  Node(int item) {
+    // sets the item value
+    this.item = item;
+    // initalizes next to null
+    this.next = null;
+  }
 }
