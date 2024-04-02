@@ -1,0 +1,30 @@
+class Main {
+
+  public static void main(String[] args) {
+
+    LinkedList list = new LinkedList();
+
+    //nodes
+    list.head = new Node(5);
+    list.head.next = new Node(10);
+    list.head.next.next = new Node(15);
+
+    //test removeAfter
+    Node n = list.head.next;
+    list.removeAfter(n);
+
+    //test copy
+    LinkedList copy = new LinkedList();
+    copy.head = list.copy();
+
+    //test remove duplicates
+    list.removeDuplicate(list.head, 10);
+
+    //test max
+    int max = list.max(list.head);
+    System.out.println("Max: " + max);
+
+  }
+
+
+}
